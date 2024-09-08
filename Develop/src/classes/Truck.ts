@@ -28,8 +28,16 @@ export default class Truck extends Vehicle implements AbleToTow {
     wheels: Wheel[],
     towingCapacity: number
   ) {
-    super(vin, color, make, model, year, weight, topSpeed, wheels);
+    super();
     this.towingCapacity = towingCapacity;
+    this.vin = vin;
+    this.color = color;
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.weight = weight;
+    this.topSpeed = topSpeed;
+    this.wheels = wheels;
   }
 
   tow(vehicleToTow: Truck | Car | Motorbike): void {
