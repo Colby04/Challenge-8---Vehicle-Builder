@@ -7,7 +7,7 @@ import Wheel from "./Wheel.js";
 import AbleToTow from "../interfaces/AbleToTow.js";
 
 // define the Cli class
-class Cli {
+export class Cli {
   // TODO: update the vehicles property to accept Truck and Motorbike objects as well
   // TODO: You will need to use the Union operator to define additional types for the array
   // TODO: See the AbleToTow interface for an example of how to use the Union operator
@@ -34,6 +34,8 @@ class Cli {
   chooseVehicle(): void {
     inquirer
       .prompt([
+        
+        
         {
           type: 'list',
           name: 'selectedVehicleVin',
@@ -46,7 +48,7 @@ class Cli {
           }),
         },
       ])
-      .then((answers: inquirer.Answers) {
+      .then((answers: inquirer.Answers) => {
         // set the selectedVehicleVin to the vin of the selected vehicle
         this.selectedVehicleVin = answers.selectedVehicleVin;
         // perform actions on the selected vehicle
@@ -64,6 +66,7 @@ class Cli {
   createVehicle(): void {
     inquirer
       .prompt([
+
         {
           type: 'list',
           name: 'vehicleType',
@@ -72,6 +75,7 @@ class Cli {
           choices: ['Car', 'Truck', 'Motorbike'],
         },
       ])
+
       .then((answers: inquirer.Answers) => {
         if (answers.vehicleType === 'Car') {
           // create a car
@@ -98,6 +102,7 @@ class Cli {
   this.createCar(); void {
     inquirer
       .prompt([
+
         {
           type: 'input',
           name: 'color',
@@ -129,6 +134,7 @@ class Cli {
           message: 'Enter Top Speed',
         },
       ])
+      
       .then((answers: { color: string; make: string; model: string; year: string; weight: string; topSpeed: string; wheelie: string; }) => {
         const car = new Car(
           // TODO: The generateVin method is static and should be called using the class name Cli, make sure to use Cli.generateVin() for creating a truck and motorbike as well!
@@ -147,7 +153,7 @@ class Cli {
         this.selectedVehicleVin = car.vin;
         // perform actions on the car
         this.performActions();
-      });
+      }),
   }
 
   // method to create a truck
@@ -301,10 +307,11 @@ createMotorbike() {
         // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
         // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
       }),
-  };
+    }
+  
 
   // method to perform actions on a vehicle
-  performActions(): void {
+  performActions(p0: string): void {
     inquirer
       .prompt([
         {
@@ -323,6 +330,8 @@ createMotorbike() {
             'Reverse',
             'Select or create another vehicle',
             'Exit',
+            'Wheelie',
+            'Tow',
           ],
         },
       ])
@@ -429,13 +438,13 @@ createMotorbike() {
       .then((answers: { CreateOrSelect: string; }) => {
         // check if the user wants to create a new vehicle or select an existing vehicle
         if (answers.CreateOrSelect === 'Create a new vehicle') {
-          this.createVehicle();
-        } else {
+          this.createVehicle();}
+         else {
           this.chooseVehicle();
         }
       }),
-  }
-};
+    };
+
 
 // export the Cli class
 function startCli() {
