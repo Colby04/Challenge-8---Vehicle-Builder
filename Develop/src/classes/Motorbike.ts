@@ -15,6 +15,7 @@
     weight: number;
     topSpeed: number;
     wheels: (Wheel[]);
+    static vin: string;
   // Remove the extra closing brace
   
     // TODO: Create a constructor that accepts the properties of the Motorbike class
