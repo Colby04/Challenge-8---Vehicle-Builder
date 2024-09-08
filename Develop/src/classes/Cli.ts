@@ -4,6 +4,7 @@ import Car from "./Car.js";
 import Motorbike from "./Motorbike.js";
 import Wheel from "./Wheel.js";
 import AbleToTow from "../interfaces/AbleToTow.js";
+import Vehicle from "./Vehicle.js";
 
 export class Cli {
   vehicles: (Car | Truck | Motorbike)[];
@@ -83,7 +84,7 @@ export class Cli {
           ],
         },
       ])
-      .then((answers: { action: string; }) => {
+      .then((answers: Answers) => {
         const vehicle = this.vehicles.find(v => v.vin === this.selectedVehicleVin);
         if (!vehicle) return;
 
@@ -167,7 +168,7 @@ export class Cli {
         { type: 'input', name: 'weight', message: 'Enter Weight' },
         { type: 'input', name: 'topSpeed', message: 'Enter Top Speed' },
       ])
-      .then((answers: { color: string; make: string; model: string; year: string; weight: string; topSpeed: string; }) => {
+      .then((answers: Answers) => {
         const car = new Car(
           Cli.generateVin(),
           answers.color,
@@ -195,7 +196,7 @@ export class Cli {
         { type: 'input', name: 'topSpeed', message: 'Enter Top Speed' },
         { type: 'input', name: 'towingCapacity', message: 'Enter Towing Capacity' },
       ])
-      .then((answers: { color: string; make: string; model: string; year: string; weight: string; topSpeed: string; towingCapacity: string; }) => {
+      .then((answers: Answers) => {
         const truck = new Truck(
           Cli.generateVin(),
           answers.color,
@@ -223,7 +224,7 @@ export class Cli {
         { type: 'input', name: 'weight', message: 'Enter Weight' },
         { type: 'input', name: 'topSpeed', message: 'Enter Top Speed' },
       ])
-      .then((answers: { color: string; make: string; model: string; year: string; weight: string; topSpeed: string; }) => {
+      .then((answers: Answers) => {
         const motorbike = new Motorbike(
           Cli.generateVin(),
           answers.color,
@@ -255,7 +256,7 @@ export class Cli {
         }),
       },
     ])
-    .then((answers: { vehicleToTow: string; }) => {
+    .then((answers: Answers) => {
       const vehicleToTow = this.vehicles.find(v => v.vin === answers.vehicleToTow);
       if (vehicleToTow && vehicleToTow !== truck) {
         truck.tow(vehicleToTow);
@@ -276,7 +277,7 @@ export class Cli {
           choices: ['Create a new vehicle', 'Select an existing vehicle'],
         },
       ])
-      .then((answers: { CreateOrSelect: string; }) => {
+      .then((answers: Answers) => {
         if (answers.CreateOrSelect === 'Create a new vehicle') {
           this.createVehicle();
         } else {
