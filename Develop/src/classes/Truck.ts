@@ -1,9 +1,9 @@
 // Assuming Vehicle and AbleToTow are defined elsewhere in your codebase
-import Vehicle from './Vehicle';
+import Vehicle from './Vehicle.js';
 import AbleToTow from "../interfaces/AbleToTow.js";
-import Wheel from './Wheel';
-import Car from './Car';
-import Motorbike from './Motorbike';
+import Wheel from './Wheel.js';
+import Car from './Car.js';
+import Motorbike from './Motorbike.js';
 
 // The Truck class should extend the Vehicle class and should implement the AbleToTow interface
 export default class Truck extends Vehicle implements AbleToTow {

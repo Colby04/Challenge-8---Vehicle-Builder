@@ -1,5 +1,5 @@
 // Assuming Vehicle and AbleToTow are defined elsewhere in your codebase
-import Vehicle from './Vehicle';
+import Vehicle from './Vehicle.js';
 // The Truck class should extend the Vehicle class and should implement the AbleToTow interface
 export default class Truck extends Vehicle {
     constructor(vin, color, make, model, year, weight, topSpeed, wheels, towingCapacity) {
