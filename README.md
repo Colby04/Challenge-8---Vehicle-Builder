@@ -1,4 +1,4 @@
-# Challenge-8---Vehicle-Builder
+# Challenge-8-Vehicle Builder: A Comprehensive Guide
 
 ## Description
 This command-line app allows us to manage a collection of vehicles. We can create new vehicles or select existing ones, choosing from types such as cars, trucks, and motorbikes. The app prompts users to enter detailed information about each vehicle, enabling them to utilize the created or selected vehicle for various actions. Results of these actions are displayed directly in the command line, and we can continue to perform additional actions until we decide to exit the app.
@@ -23,7 +23,7 @@ This command-line app allows us to manage a collection of vehicles. We can creat
 We can choose between car, truck, and motorbike, and also are able to choose vehicle type during creation. 
 
 ## Walkthrough Video
-https://drive.google.com/file/d/1amlNXpXnPNVTdd9q8E1tAxtt4NLjDvDV/view?usp=drive_link
+https://app.screencastify.com/v3/watch/2uDFc79XdUhEogUZ7O8w
 
 ## License
 This project is licensed under the No License license.
